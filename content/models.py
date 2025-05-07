@@ -8,7 +8,7 @@ class Post(models.Model):
     body = models.TextField()
 
     def __str__(self):
-        return self.user
+        return self.title
 
 
 class Comment(models.Model):
