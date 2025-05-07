@@ -14,7 +14,7 @@ class Photo(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name="photos")
     title = models.CharField(max_length=150)
     url = models.URLField()
-    thumbnailUrl: models.URLField(null=True)
+    thumbnailUrl = models.URLField(null=True)
 
     def __str__(self):
         return self.title

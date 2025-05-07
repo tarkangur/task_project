@@ -3,6 +3,7 @@ from .models import Post, Comment
 
 
 class PostSerializer(serializers.ModelSerializer):
+    userId = serializers.PrimaryKeyRelatedField(source='user', read_only=True)
 
     class Meta:
         model = Post
@@ -10,6 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    postId = serializers.PrimaryKeyRelatedField(source='post', read_only=True)
 
     class Meta:
         model = Comment
