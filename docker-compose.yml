@@ -30,6 +30,10 @@ services:
     env_file:
       - ./.env
 
+  memcached:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+
 volumes:
   postgres_data:
-
