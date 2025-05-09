@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from .models import Post, Comment
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -7,7 +10,10 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['userId', 'id', 'title', 'body']
+        fields = ['id', 'userId', 'title', 'body', 'user']
+        extra_kwargs = {
+            'user': {'write_only': True, 'required': True},
+        }
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -15,4 +21,8 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['postId', 'id', 'name', 'email', 'body']
+        fields = ['id', 'postId', 'name', 'email', 'body', 'post']
+
+        extra_kwargs = {
+            'post': {'write_only': True, 'required': True},
+        }
