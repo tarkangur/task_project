@@ -26,8 +26,8 @@ router = DefaultRouter()
 router.register(r'posts', PostViewSet)
 router.register(r'comments', CommentViewSet)
 router.register(r'todos', TodoViewSet)
-router.register(r'albums', AlbumViewSet)
-router.register(r'photos', PhotoViewSet)
+router.register(r'albums', AlbumViewSet, basename="album")
+router.register(r'photos', PhotoViewSet, basename="photo")
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
