@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'todos',
     'media',
     'content',
-    'rest_framework'
+    'rest_framework',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -97,6 +98,19 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
         'LOCATION': 'memcached:11211',
     }
+}
+
+SWAGGER_SETTINGS = {
+    # API bilgileri
+    'INFO': {
+        'title': 'Proje API Dokümantasyonu',
+        'default_version': 'v1',
+        'description': 'Bu API, kullanıcı, todo, içerik ve medya yönetimi için endpointler sunar.',
+    },
+}
+
+REDOC_SETTINGS = {
+   'LAZY_RENDERING': False,
 }
 
 
